@@ -2,7 +2,7 @@ __author__ = 'mmateja'
 
 import numpy as np
 from FillnumberData import TakeFillNumber
-class MuData(TakeFillNumber):
+class ConditionData(TakeFillNumber):
 
     def __init__(self):
         self.data={}

@@ -4,7 +4,7 @@ import numpy as np
 from LoadFiles.LoadFillNumber import LoadFillNumbers
 from FillnumberData import TakeFillNumber
 import collections
-class LumiData(TakeFillNumber):
+class LPCData(TakeFillNumber):
 
     def __init__(self):
         self.data={}
@@ -12,13 +12,13 @@ class LumiData(TakeFillNumber):
     def load(self,filename, datafromonefile):
         self.data[filename] = datafromonefile
 
-    def getlumi(self):
+    def getmax_lumi(self):
         xlist = {}
         ylist = {}
         for key, value in self.data.iteritems():
             xlist[key]=np.max(value['lumi'])
         xlist = collections.OrderedDict(sorted(xlist.items()))
-        ylist['lumi_max'] = xlist.values()
+        ylist['max_lumi'] = xlist.values()
         print ylist
         return ylist
 
@@ -29,6 +29,12 @@ class LumiData(TakeFillNumber):
             print xlist
         return xlist
 
+    def getlumi(self):
+        xlist = {}
+        for key, value in self.data.iteritems():
+            xlist[key]=(value['lumi'])
+        return xlist
+
     def gettime_sec(self):
         xlist = {}
         for key, value in self.data.iteritems():
@@ -36,11 +42,11 @@ class LumiData(TakeFillNumber):
         return xlist
 
 
-    def getMaxLumi(self):
-
-        xlist=[]
-        v=self.data.values()
-        for oneFile in v:
-            xlist.append(oneFile['a'].max)
-
-        return np.array(xlist)
+    # def getMaxLumi(self):
+    #
+    #     xlist=[]
+    #     v=self.data.values()
+    #     for oneFile in v:
+    #         xlist.append(oneFile['a'].max)
+    #
+    #     return np.array(xlist)

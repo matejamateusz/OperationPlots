@@ -1,16 +1,18 @@
+__author__ = 'mmateja'
+
 from  Plot import Plot
 
 from LoadFiles.LoadFiles import LoadFiles
 from LoadFiles.LoadDataFromFiles import LoadDataFromFiles
 from PLOT.PLOT import PLOT
-class PlotMu(Plot):
+class PlotLPC(Plot):
 
 
-    def __init__(self,x,y):
+    def __init__(self,x,y,basic_path,nameFileEnd):
         Plot.__init__(self,x,y)
 
-        loader=LoadDataFromFiles()
-        loader.load("/home/mmateja/PycharmProjects/OperationPlots/Fillnumbers.txt","mu")
+        loader=LoadDataFromFiles(basic_path, nameFileEnd)
+        loader.load(basic_path+"Fillnumbers.txt","lumi")
         dataObject=loader.getData()
 
         self.datax=eval("dataObject.get"+x+"()")
