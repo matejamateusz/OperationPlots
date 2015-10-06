@@ -3,14 +3,14 @@ from __builtin__ import dict
 __author__ = 'mmateja'
 
 from LoadFillNumber import LoadFillNumbers
-from IO.LumiData import LumiData
+from IO.LPCData import LPCData
 import numpy as np
-class LoadLumi():
+class LoadLPC():
 
     def __init__(self, fillNumbers, basic_path, nameFileEnd):
 
         self.fillNumbers=fillNumbers
-        self.data=LumiData()
+        self.data=LPCData()
         self.basic_path = basic_path
         self.nameFileEnd = nameFileEnd
 

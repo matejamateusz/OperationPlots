@@ -3,8 +3,8 @@ import numpy as np
 
 class LoadFillNumbers():
 
-    def __init__(self,pathOfFillNubersFile):
-        self.fillnumber = np.loadtxt(pathOfFillNubersFile)
+    def __init__(self,pathOfFillNumbersFile):
+        self.fillnumber = np.loadtxt(pathOfFillNumbersFile)
 
     def getFillNumbers(self):
 

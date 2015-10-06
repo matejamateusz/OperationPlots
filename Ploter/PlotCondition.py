@@ -6,11 +6,11 @@ from PLOT.PLOT import PLOT
 class PlotCondition(Plot):
 
 
-    def __init__(self,x,y):
+    def __init__(self,x,y,basic_path,nameFileEnd):
         Plot.__init__(self,x,y)
 
-        loader=LoadDataFromFiles()
-        loader.load("/home/mmateja/PycharmProjects/OperationPlots/Fillnumbers.txt","mu")
+        loader=LoadDataFromFiles(basic_path, nameFileEnd)
+        loader.load(basic_path+"Fillnumbers.txt","Condition")
         dataObject=loader.getData()
 
         self.datax=eval("dataObject.get"+x+"()")

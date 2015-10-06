@@ -12,7 +12,7 @@ class PlotLPC(Plot):
         Plot.__init__(self,x,y)
 
         loader=LoadDataFromFiles(basic_path, nameFileEnd)
-        loader.load(basic_path+"Fillnumbers.txt","lumi")
+        loader.load(basic_path+"Fillnumbers.txt","LPC")
         dataObject=loader.getData()
 
         self.datax=eval("dataObject.get"+x+"()")

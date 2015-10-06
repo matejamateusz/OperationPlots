@@ -1,20 +1,19 @@
 __author__ = 'mmateja'
 
-from LoadLumi import LoadLumi
-from LoadMu import LoadMu
+from LoadLPC import LoadLPC
+from LoadCondition import LoadCondition
 class LoadFiles():
 
-    def __init__(self, name, fillNumbers):
+    def __init__(self, name, fillNumbers, basic_path, nameFileEnd):
+         self.basic_path = basic_path
+         self.nameFileEnd = nameFileEnd
 
-
-         if 'lumi' in name:
-            self.files=LoadLumi(fillNumbers)
+         if 'LPC' in name:
+            self.files=LoadLPC(fillNumbers, self.basic_path, self.nameFileEnd)
             self.files.load()
-         elif 'mu' in name:
-            self.files=LoadMu(fillNumbers)
+         elif 'Condition' in name:
+            self.files=LoadCondition(fillNumbers, self.basic_path, self.nameFileEnd)
             self.files.load()
-         elif 'pileup' in name:
-             pass
          else:
              raise IOError("WRONG PATH")
 
