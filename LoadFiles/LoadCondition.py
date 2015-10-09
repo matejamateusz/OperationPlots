@@ -20,7 +20,7 @@ class LoadCondition():
             print path
             d=np.loadtxt(path, delimiter=' ',dtype=[
                 ('time_year', 'float'), ('time_month_flag', 'float'), ('time_day', 'float'), ('time_hours', 'float'),
-                ('time_minute', 'float'), ('time_second', 'float'), ('value', 'float')]).T
+                ('time_minute', 'float'), ('time_sec', 'float'), ('value', 'float')]).T
             self.data.load(path, d)
 
 

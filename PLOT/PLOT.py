@@ -5,14 +5,20 @@ import matplotlib.dates as mdates
 from datetime import datetime
 import numpy as np
 
+
+def dateformat(value1):
+        value1 = [datetime.fromtimestamp(v1) for v1 in value1]
+        return value1
+
 class PLOT:
     def __init__(self, x, y):
-        self.x = x  #.astype(datetime)
+        self.x = x#.astype(datetime)
         self.y = y
         self.figure = plt.figure()
 
         self.ax = plt.subplot(111)
         self.ax.fmt_xdata = mdates.DateFormatter('%Y-%m-%d')
+        #self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
 
         self.figure.suptitle("LHCB")
         self.xlabel = "Date"
@@ -32,9 +38,11 @@ class PLOT:
 
 
     def show(self):
+        plt.tight_layout()
         plt.show()
 
     def draw(self):
+        #plt.xticks(rotation=45)# horizontalalignment='right')
         plt.plot(self.x, self.y, marker=self.marker, linestyle=self.linestyle, color=self.color,
                  markersize=self.markersize)
 
@@ -47,6 +55,10 @@ class PLOT:
 
         self.setTitle=title
         self.figure.suptitle(self.setTitle)
+
+    def setDate(self):
+        self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
+        plt.xticks(rotation=45)# horizontalalignment='right')
 
     def setxlabel(self, xlabel):
         self.xlabel = xlabel

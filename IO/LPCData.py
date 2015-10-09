@@ -2,9 +2,9 @@ __author__ = 'mmateja'
 
 import numpy as np
 from LoadFiles.LoadFillNumber import LoadFillNumbers
-from FillnumberData import TakeFillNumber
+from TakeFillNumbers import TakeFillNumbers
 import collections
-class LPCData(TakeFillNumber):
+class LPCData(TakeFillNumbers):
 
     def __init__(self):
         self.data={}
@@ -19,6 +19,16 @@ class LPCData(TakeFillNumber):
             xlist[key]=np.max(value['lumi'])
         xlist = collections.OrderedDict(sorted(xlist.items()))
         ylist['max_lumi'] = xlist.values()
+        print ylist
+        return ylist
+
+    def getaverage_lumi(self):
+        xlist = {}
+        ylist = {}
+        for key, value in self.data.iteritems():
+            xlist[key]=np.mean(value['lumi'])
+        xlist = collections.OrderedDict(sorted(xlist.items()))
+        ylist['average_lumi'] = xlist.values()
         print ylist
         return ylist
 
@@ -41,6 +51,15 @@ class LPCData(TakeFillNumber):
             xlist[key]=(value['time_sec'])
         return xlist
 
+    def gettime(self):
+        xlist = {}
+        ylist = {}
+        for key, value in self.data.iteritems():
+            xlist[key]=(value['time_sec'][5])
+        xlist = collections.OrderedDict(sorted(xlist.items()))
+        ylist['time']=xlist.values()
+        print ylist
+        return ylist
 
     # def getMaxLumi(self):
     #
