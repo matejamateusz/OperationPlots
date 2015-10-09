@@ -3,7 +3,8 @@ __author__ = 'mmateja'
 import numpy as np
 from TakeFillNumbers import TakeFillNumbers
 import collections
-import time, datetime
+import time
+import datetime
 class ConditionData(TakeFillNumbers):
 
     def __init__(self):
@@ -55,7 +56,8 @@ class ConditionData(TakeFillNumbers):
         xlist = {}
         ylist = {}
         for key, value in self.data.iteritems():
-            xlist[key]=(value['time_year'][5], value['time_month'][5], value['time_day'][5], value['time_hour'][5], value['time_minute'][5], value['time_sec'][5])
+            xlist[key]=(value['time_year'][5], value['time_month'][5],
+                        value['time_day'][5], value['time_hour'][5], value['time_minute'][5], value['time_sec'][5])
         xlist = collections.OrderedDict(sorted(xlist.items()))
         ylist['time']=xlist.values()
         def transformtotimestamp(xdict):
