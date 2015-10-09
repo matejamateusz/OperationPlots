@@ -19,8 +19,8 @@ class LoadCondition():
             path = self.basic_path + "/%d/%d_%s.txt" %(fillnumber[z], fillnumber[z], self.nameFileEnd)  #/group/online/tfc/ROOT/RunParameters/%d_Mu.txt
             print path
             d=np.loadtxt(path, delimiter=' ',dtype=[
-                ('time_year', 'float'), ('time_month_flag', 'float'), ('time_day', 'float'), ('time_hours', 'float'),
-                ('time_minute', 'float'), ('time_sec', 'float'), ('value', 'float')]).T
+                ('time_year', 'int'), ('time_month', 'int'), ('time_day', 'int'), ('time_hour', 'int'),
+                ('time_minute', 'int'), ('time_sec', 'int'), ('value', 'float')]).T
             self.data.load(path, d)
 
 

@@ -57,7 +57,7 @@ class PLOT:
         self.figure.suptitle(self.setTitle)
 
     def setDate(self):
-        self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
+        self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
         plt.xticks(rotation=45)# horizontalalignment='right')
 
     def setxlabel(self, xlabel):
