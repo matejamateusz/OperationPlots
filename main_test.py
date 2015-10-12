@@ -1,7 +1,8 @@
 __author__ = 'mmateja'
+__author__ = 'mmateja'
 
-from PlotLPC import PlotLPC
-from PlotCondition import PlotCondition
+from Ploter.PlotLPC import PlotLPC
+from Ploter.PlotCondition import PlotCondition
 from PLOT.PLOT import PLOT, dateformat
 import numpy as np
 from datetime import datetime
