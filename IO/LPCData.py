@@ -36,7 +36,6 @@ class LPCData(TakeFillNumbers):
         xlist = {}
         for key, value in self.data.iteritems():
             xlist[key]=(value['time_sec']-value['time_sec'][0])/3600
-            print xlist
         return xlist
 
     def getlumi(self):
@@ -51,13 +50,13 @@ class LPCData(TakeFillNumbers):
             xlist[key]=(value['time_sec'])
         return xlist
 
-    def gettime(self):
+    def gettime_date(self):
         xlist = {}
         ylist = {}
         for key, value in self.data.iteritems():
             xlist[key]=(value['time_sec'][5])
         xlist = collections.OrderedDict(sorted(xlist.items()))
-        ylist['time']=xlist.values()
+        ylist['time_date']=xlist.values()
         print ylist
         return ylist
 

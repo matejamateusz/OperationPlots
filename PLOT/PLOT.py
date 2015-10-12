@@ -3,12 +3,27 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import matplotlib.dates as mdates
 from datetime import datetime
+from datetime import datetime
+import pytz # $ pip install pytz
+import tzlocal # $ pip install tzlocal
+#  FOR ALL PLATFORMS to get access to the tz database on all platforms
+# and compute the correct "seconds since the Epoch" (POSIX timestamp) corresponding to the input time tuples:
 import numpy as np
 
 
 def dateformat(value1):
         value1 = [datetime.fromtimestamp(v1) for v1 in value1]
         return value1
+
+def transformtotimestamp(dict):
+        local_timezone = tzlocal.get_localzone() # pytz tzinfo representing local time
+        epoch = datetime(1970, 1, 1, tzinfo=pytz.utc)
+        dict['time_date'] = [(local_timezone.localize(datetime(*tt), is_dst=None) - epoch).total_seconds()
+          for tt in dict['time_date']]
+        return dict
+
+# def transformtotimestamp(xdict):
+#     return {"time": map(lambda k: time.mktime(datetime.datetime(*k).timetuple()), xdict["time"])}
 
 class PLOT:
     def __init__(self, x, y):

@@ -11,17 +11,17 @@ basic_path = "/home/mmateja/PycharmProjects/OperationPlots/"
 
 
 startfillnumber = 3819
-endfillnumber = 4000
+endfillnumber = 3819
 
-xaxis = "time"
-yaxis = "peak_condition"
-d=PlotCondition(xaxis, yaxis, basic_path, "Pileup", startfillnumber, endfillnumber)
+xaxis = "time_sec"  #TIME_DATE, FILLNUMBER
+yaxis = "lumi"
+d=PlotLPC(xaxis, yaxis, basic_path, "lumi_LHCb", startfillnumber, endfillnumber)
 #d=PlotCondition("time_year","value", basic_path, nameFileEnd)
 for (key1, value1),(key2, value2) in zip(d.datax.iteritems(), d.datay.iteritems()): #-key2,0iteritems ze wzgledu na typy danych
-        #value1 = [datetime.fromtimestamp(v1) for v1 in value1]E
+        #value1 = [datetime.fromtimestamp(v1) for v1 in value1]
         if key1 != key2 and ("time_sec" and "lumi" in xaxis and yaxis):
             print "ERROR DIFFERENT KEYS!!!!!!!"
-        if "time_sec" and "time_hour" and "time" in xaxis and yaxis:
+        if "time_date" in xaxis and yaxis:
             value1 = dateformat(value1)
             plot=PLOT(value1, value2)
             plot.setTitle(key1) #key1
