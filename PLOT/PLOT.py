@@ -36,8 +36,8 @@ class PLOT:
         #self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
 
         self.figure.suptitle("LHCB")
-        self.xlabel = "Date"
-        self.ylabel = 'Peak Inst Luminosity (10^24/cm^2*s^1)'
+        self.xlabel = "TITLE OF XLABEL"
+        self.ylabel = 'TITLE OF YLABEL'
 
         self.y_min = 0
         self.y_max = 1
@@ -47,19 +47,18 @@ class PLOT:
         self.linestyle = 'None'
         self.marker = Line2D.filled_markers[0]
         plt.grid()
-        plt.xlabel(self.xlabel)
-        plt.ylabel(self.ylabel)
+
 
 
 
     def show(self):
-        plt.tight_layout()
         plt.show()
 
     def draw(self):
         #plt.xticks(rotation=45)# horizontalalignment='right')
         plt.plot(self.x, self.y, marker=self.marker, linestyle=self.linestyle, color=self.color,
                  markersize=self.markersize)
+        plt.tight_layout()
 
     def sety_min(self, y_min):
         self.y_min = y_min
@@ -72,14 +71,16 @@ class PLOT:
         self.figure.suptitle(self.setTitle)
 
     def setDate(self):
-        self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-        plt.xticks(rotation=45)# horizontalalignment='right')
+        self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d'))
+        plt.xticks(rotation=0)# horizontalalignment='right')
 
     def setxlabel(self, xlabel):
         self.xlabel = xlabel
+        plt.xlabel(self.xlabel)
 
     def setylabel(self, ylabel):
         self.ylabel = ylabel
+        plt.ylabel(self.ylabel)
 
     def disableGrid(self):
         plt.grid(False)
@@ -98,3 +99,6 @@ class PLOT:
 
     def setlineStyle(self, style):
         self.linestyle = style
+
+    def savefig(self, nameoffile):
+        plt.savefig(nameoffile)
