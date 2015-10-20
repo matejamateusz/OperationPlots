@@ -11,7 +11,7 @@ startfillnumber = 3819
 endfillnumber = 4000
 
 d = Retriever( basic_path, "lumi_LHCb", startfillnumber, endfillnumber)
-data = d.retrieve("LPC")
+data = d.retrieve("LPC") #LPC, CONDITION
 r = RetrieveDataForPlot(data)
 datax,datay=r.retrieveData("fillnumber","max_lumi")
 for (key1, value1),(key2, value2) in zip(datax.iteritems(), datay.iteritems()): #-key2,0iteritems ze wzgledu na typy danych
