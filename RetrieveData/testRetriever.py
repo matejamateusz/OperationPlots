@@ -9,12 +9,11 @@ basic_path = "/home/mmateja/PycharmProjects/OperationPlots/"
 
 startfillnumber = 3819
 endfillnumber = 4000
-xaxis = "fillnumber"  #TIME_DATE, FILLNUMBER
-yaxis = "max_lumi"
+
 d = Retriever( basic_path, "lumi_LHCb", startfillnumber, endfillnumber)
-data = d.retrieve("Condition")
+data = d.retrieve("LPC")
 r = RetrieveDataForPlot(data)
-datax,datay=r.retrieveData(xaxis,yaxis)
+datax,datay=r.retrieveData("fillnumber","max_lumi")
 for (key1, value1),(key2, value2) in zip(datax.iteritems(), datay.iteritems()): #-key2,0iteritems ze wzgledu na typy danych
         plot=PLOT(value1, value2)
         plot.setTitle("LHCb Peak Instantaneous Lumi at p-p 6.5 TeV in 2015") #key1
